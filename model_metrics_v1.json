@@ -1,0 +1,131 @@
+{
+  "created_at_utc": "2026-07-26T10:30:11.890605+00:00",
+  "dataset": {
+    "path": "/content/drive/MyDrive/Wildfire_ML_Project/wildfire_base_grid_daily_same_day_full_rerun_v2.parquet",
+    "rows_before_target_shift": 680500,
+    "modelling_rows": 679139,
+    "same_day_positive_labels": 3461,
+    "post_march_same_day_positive_labels": 1201,
+    "test_next_day_positive_labels": 1184
+  },
+  "split_summary": [
+    {
+      "split": "Training",
+      "first_date": "2025-01-05",
+      "last_date": "2025-12-31",
+      "rows": 491321,
+      "positive_examples": 1997,
+      "positive_percentage": 0.406455250233554
+    },
+    {
+      "split": "Validation",
+      "first_date": "2026-01-01",
+      "last_date": "2026-02-28",
+      "rows": 80299,
+      "positive_examples": 280,
+      "positive_percentage": 0.3486967459121533
+    },
+    {
+      "split": "Testing",
+      "first_date": "2026-03-01",
+      "last_date": "2026-05-18",
+      "rows": 107519,
+      "positive_examples": 1184,
+      "positive_percentage": 1.1012007180126304
+    }
+  ],
+  "full_model": {
+    "model_path": "/content/drive/MyDrive/Wildfire_ML_Project/models/wildfire_full_environmental_next_day_v1.joblib",
+    "feature_count": 33,
+    "risk_thresholds": {
+      "moderate": 0.01460553274131551,
+      "high": 0.03393619996862175,
+      "very_high": 0.3105715611293702,
+      "raw_validation_candidates": {
+        "target_90_percent_recall": {
+          "threshold": 0.01460553274131551,
+          "precision": 0.005840634125990822,
+          "recall": 0.9
+        },
+        "target_75_percent_recall": {
+          "threshold": 0.03393619996862175,
+          "precision": 0.007106968134338225,
+          "recall": 0.7678571428571429
+        },
+        "best_f1": {
+          "threshold": 0.3105715611293702,
+          "precision": 0.013561024610748368,
+          "recall": 0.19285714285714287,
+          "f1_score": 0.02534021586097531
+        }
+      }
+    },
+    "validation": {
+      "threshold": 0.3105715611293702,
+      "precision": 0.013561024610748368,
+      "recall": 0.19285714285714287,
+      "f1_score": 0.025340215861098078,
+      "average_precision": 0.009465622168638003,
+      "roc_auc": 0.755833279774625,
+      "predicted_positive": 3982,
+      "actual_positive": 280
+    },
+    "test": {
+      "threshold": 0.3105715611293702,
+      "precision": 0.07692307692307693,
+      "recall": 0.6807432432432432,
+      "f1_score": 0.1382267192591322,
+      "average_precision": 0.11182950970986127,
+      "roc_auc": 0.9045373836066283,
+      "predicted_positive": 10478,
+      "actual_positive": 1184
+    }
+  },
+  "hardware_model": {
+    "model_path": "/content/drive/MyDrive/Wildfire_ML_Project/models/wildfire_hardware_next_day_v1.joblib",
+    "feature_count": 21,
+    "risk_thresholds": {
+      "moderate": 0.005589153232124453,
+      "high": 0.02396881171193601,
+      "very_high": 0.31211518762980184,
+      "raw_validation_candidates": {
+        "target_90_percent_recall": {
+          "threshold": 0.005589153232124453,
+          "precision": 0.004665916677424709,
+          "recall": 0.9035714285714286
+        },
+        "target_75_percent_recall": {
+          "threshold": 0.02396881171193601,
+          "precision": 0.006068624349276654,
+          "recall": 0.7535714285714286
+        },
+        "best_f1": {
+          "threshold": 0.31211518762980184,
+          "precision": 0.01144524236983842,
+          "recall": 0.18214285714285713,
+          "f1_score": 0.021537162162050906
+        }
+      }
+    },
+    "validation": {
+      "threshold": 0.31211518762980184,
+      "precision": 0.01144524236983842,
+      "recall": 0.18214285714285713,
+      "f1_score": 0.02153716216216216,
+      "average_precision": 0.008327782912116883,
+      "roc_auc": 0.7261618669137508,
+      "predicted_positive": 4456,
+      "actual_positive": 280
+    },
+    "test": {
+      "threshold": 0.31211518762980184,
+      "precision": 0.0923618975714106,
+      "recall": 0.6199324324324325,
+      "f1_score": 0.16077099989048296,
+      "average_precision": 0.14109212788720638,
+      "roc_auc": 0.9026877861780527,
+      "predicted_positive": 7947,
+      "actual_positive": 1184
+    }
+  }
+}
