@@ -1,0 +1,86 @@
+{
+  "model_version": "wildfire_hardware_next_day_v1",
+  "feature_columns": [
+    "latitude",
+    "longitude",
+    "temperature_mean_c",
+    "temperature_max_c",
+    "dewpoint_c",
+    "relative_humidity",
+    "humidity_mean_3d",
+    "humidity_mean_7d",
+    "temperature_mean_3d",
+    "temperature_mean_7d",
+    "temperature_max_3d",
+    "temperature_max_7d",
+    "dewpoint_mean_3d",
+    "dewpoint_mean_7d",
+    "month",
+    "day_of_year_sin",
+    "day_of_year_cos",
+    "season_winter",
+    "season_pre_monsoon",
+    "season_monsoon",
+    "season_post_monsoon"
+  ],
+  "risk_thresholds": {
+    "moderate": 0.005589153232124453,
+    "high": 0.02396881171193601,
+    "very_high": 0.31211518762980184,
+    "raw_validation_candidates": {
+      "target_90_percent_recall": {
+        "threshold": 0.005589153232124453,
+        "precision": 0.004665916677424709,
+        "recall": 0.9035714285714286
+      },
+      "target_75_percent_recall": {
+        "threshold": 0.02396881171193601,
+        "precision": 0.006068624349276654,
+        "recall": 0.7535714285714286
+      },
+      "best_f1": {
+        "threshold": 0.31211518762980184,
+        "precision": 0.01144524236983842,
+        "recall": 0.18214285714285713,
+        "f1_score": 0.021537162162050906
+      }
+    }
+  },
+  "deployment_contract": {
+    "prediction_frequency": "Once per completed daily sensor window.",
+    "forecast_horizon_hours": 24,
+    "required_history_days": 7,
+    "raw_sensor_fields": [
+      "sender",
+      "temp",
+      "hum",
+      "lat",
+      "lng",
+      "gpsFix",
+      "timestamp"
+    ],
+    "reactive_fields_not_used_by_ml": [
+      "mq2",
+      "flame"
+    ],
+    "invalid_sensor_reading_rule": "Discard a reading when temp == -1, hum == -1, either field is missing or non-numeric, or humidity is outside 0-100.",
+    "minimum_daily_valid_reading_percentage": 80.0,
+    "location_rule": "Use live GPS when available, otherwise the last valid GPS location, otherwise a sender-specific configured deployment coordinate. Snap that position to the nearest coordinate in training_grid before inference.",
+    "feature_definitions": {
+      "temperature_mean_c": "Mean of all valid DHT11 temperature readings in the completed daily window.",
+      "temperature_max_c": "Maximum valid DHT11 temperature in the completed daily window.",
+      "relative_humidity": "Mean of all valid DHT11 humidity readings in the completed daily window.",
+      "dewpoint_c": "Mean daily dew point calculated from each valid temperature-humidity reading.",
+      "humidity_mean_3d": "Mean of the latest three daily relative-humidity summaries.",
+      "humidity_mean_7d": "Mean of the latest seven daily relative-humidity summaries.",
+      "temperature_mean_3d": "Mean of the latest three daily mean-temperature summaries.",
+      "temperature_mean_7d": "Mean of the latest seven daily mean-temperature summaries.",
+      "temperature_max_3d": "Maximum of the latest three daily maximum temperatures.",
+      "temperature_max_7d": "Maximum of the latest seven daily maximum temperatures.",
+      "dewpoint_mean_3d": "Mean of the latest three daily dew-point summaries.",
+      "dewpoint_mean_7d": "Mean of the latest seven daily dew-point summaries."
+    },
+    "prediction_semantics": "Predictive next-day regional hotspot risk. Flame and MQ2 alerts remain immediate and have higher operational priority."
+  },
+  "training_grid_path": "/content/drive/MyDrive/Wildfire_ML_Project/results/era5_training_grid_v1.csv"
+}
