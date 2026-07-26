@@ -1,0 +1,30 @@
+{
+  "model_version": "wildfire_hardware_next_day_v1",
+  "input_date": "2026-05-18",
+  "forecast_date": "2026-05-19",
+  "features": {
+    "latitude": 28.7997198252366,
+    "longitude": 81.60119686084641,
+    "temperature_mean_c": 26.419773991902677,
+    "temperature_max_c": 31.66257629394533,
+    "dewpoint_c": 14.087398783365929,
+    "relative_humidity": 46.65220913890497,
+    "humidity_mean_3d": 48.87337503458818,
+    "humidity_mean_7d": 58.89383677834521,
+    "temperature_mean_3d": 25.642014016045493,
+    "temperature_mean_7d": 23.99245269412088,
+    "temperature_max_3d": 31.66257629394533,
+    "temperature_max_7d": 31.66257629394533,
+    "dewpoint_mean_3d": 14.075481033325218,
+    "dewpoint_mean_7d": 15.2568001338414,
+    "month": 5.0,
+    "day_of_year_sin": 0.6944521021088763,
+    "day_of_year_cos": -0.719538934232584,
+    "season_winter": 0.0,
+    "season_pre_monsoon": 1.0,
+    "season_monsoon": 0.0,
+    "season_post_monsoon": 0.0
+  },
+  "risk_score": 0.12685390567490448,
+  "risk_level": "high"
+}
